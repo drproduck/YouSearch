@@ -1,0 +1,9 @@
+*/.idea/
+**/__pycache__/
+*/db*
+**/.DS_Store
+**/logs/*
+**/.pytest_cache/*
+**/asset/*
+.project
+.pydevproject

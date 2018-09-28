@@ -1,0 +1,40 @@
+{% extends "userbase.djt" %}
+
+{% block title %}
+<title>Profile</title>
+{% endblock %}
+
+{% block section1 %}
+<h1>Sup, {{user}}</h1>
+{% endblock %}
+
+{% block section2 %}
+ <table align="center">
+ <style>th, td { padding: 5px;} </style>
+  <tr>
+    <th align="right">Username:</th>
+    <td align="left">{{ user }}</td>
+  </tr>
+  <tr>
+    <th align="right">Date Joined:</th>
+    <td align="left">{{ user.date_joined }}</td>
+  </tr>
+  <tr>
+    <th align="right">First Name:</th>
+    <td align="left">{{ user.first_name }}</td>
+  </tr>
+  <tr>
+    <th align="right">Last Name:</th>
+    <td align="left">{{ user.last_name }}</td>
+  </tr>
+  <tr>
+    <th align="right">Email:</th>
+    <td align="left">{{ user.email }}</td>
+  </tr>
+</table>
+{% endblock %}
+
+{% block section3 %}
+<button class="btn" type="button" onclick="location.href='/password'"><span>Change Password</span></button>
+<button class="btn" type="button" onclick="location.href='/edit'"><span>Edit User Information</span></button>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "userbase.djt" %}
+{% block section1 %}
+    <div class="select2-container">
+        <form action="{% url "analytics:parser" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if logtomatform.errors %}
+                {% for error in logtomatform.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {{ logtomatform.as_p }}
+            <p>Or write your own regex :</p>
+            {{ regexform.as_p }}
+            <input type="submit" value="Use parser"/>
+        </form>
+    </div>
+{% endblock %}
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+{% block section2 %}
+    <div class="container">
+        <p>Or continue from created file:</p>
+        <l>
+            {% for log in log_list %}
+                <li>{{ log.log_name }}</li>
+                <table style="width: 100%;">
+                    {% for mat in log.matrix_set.all %}
+                        <tr>
+                        <td><a href="{{ mat.get_absolute_url }}">{{ mat.mat_name }}</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endfor %}
+        </l>
+    </div>
+{% endblock %}
