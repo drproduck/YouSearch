@@ -211,9 +211,9 @@
   <div id="headline" style="background-size: contain; background-image: url({% static "index/background.jpg" %})">
     <div class="container">
       <header>
-        <h1>Hi, I'm Element</h1>
+        <h1>Hi, I'm YouSearch</h1>
         <br>
-        <h2>The only ML-driven log analytics service that automatically maintains logs and identifies insight for you.</h2>
+        <h2> A NIPS paper recommender system that suggests the most relevant concepts to researchers</h2>
       </header>
     </div>
   </div>
@@ -249,12 +249,9 @@
       <h2>Who are the brains behind?</h2>
       <p>Some of the <strike>world's leading</strike> software developers:</p>
       <div id="images">
-        <p>Cole Sakamoto</p>
         <p>Khiem Pham</p>
-        <p>Ly Nguyen</p>
-        <p>Luis Pamintuan</p>
-        <p>Weimeng Pu</p>
-        <p>Trung Tran</p>
+        <p>Phillip Hui</p>
+        <p>Christian</p>
       </div>
     </div>
   </div>
