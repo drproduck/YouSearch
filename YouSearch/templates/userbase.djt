@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -380,7 +380,7 @@
   <footer>
     <div class="container">
       <p>Terms of services | Privacy policy</p>
-      <p>Element Analytics © 2018</p>
+      <p>YouSearch © 2018</p>
     </div>
   </footer>
   <!-- // [END footer] -->
