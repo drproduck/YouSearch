@@ -1,10 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 {% load static %}
 <head>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="{% static "index/favicon.png" %}"/>
-  <title>Element Analytics</title>
+  <title>YouSearch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="//fonts.googleapis.com/css?family=Roboto:400,300,200,100&subset=latin,cyrillic" rel="stylesheet">
   <!-- // [start style] -->
@@ -231,14 +231,8 @@
   <!-- // [START section1] -->
   <div id="section1">
     <div class="container">
-      <h2>I make log analytics easy...</h2>
-      <p>Create analytics without scripting. Get results in minutes.</p>
-      <p>Quickly detect anomalies such as...</p>
-      <p>Automatically compare visual diffs at every timestamp of a log for changes</p>
-      <p>Run tests in parallel with no infrastructure to manage or provision</p>
-      <p>Identify and surface problems fast, before your customers are impacted</p>
-      <p>Encrypted data, secure credentials, robust firewall support, and more</p>
-      <p>Realize the potential of continuous delivery with Element</p>
+      <h2>Working on a big project?</h2>
+      <p>Have no fear, because we can help you find the research you need!</p>
     </div>
   </div>
   <!-- // [END section1] -->
@@ -246,7 +240,7 @@
   <!-- // [START section2] -->
   <div id="section2">
     <div class="container">
-      <h2>Who are the brains behind?</h2>
+      <h2>Who are the brains behind this application?</h2>
       <p>Some of the <strike>world's leading</strike> software developers:</p>
       <div id="images">
         <p>Khiem Pham</p>
@@ -273,7 +267,7 @@
   <footer>
     <div class="container">
       <p>Terms of services | Privacy policy</p>
-      <p>Element Analytics © 2018</p>
+      <p>YouSearch © 2018</p>
     </div>
   </footer>
   <!-- // [END footer] -->
