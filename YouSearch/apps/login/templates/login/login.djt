@@ -4,7 +4,7 @@
 <!-- // [START section1]-->
 <div id="section1">
     <div class="container">
-        <h2>Log in to Element Analytics</h2>
+        <h2>Log in to YouSearch</h2>
     </div>
 </div>
 <!-- // [END section1] -->
@@ -43,7 +43,7 @@
 <!-- // [START section3] -->
 <div id="section3">
     <div class="container">
-        <p>New to Element Analytics?</p>
+        <p>New to YouSearch?</p>
         <button class="btn" type="button" onclick="location.href='/signup'"><span>Sign up</span></button>
         <button class="btn" type="button" onclick="location.href='/index'"><span>Return to Home</span></button>
     </div>
