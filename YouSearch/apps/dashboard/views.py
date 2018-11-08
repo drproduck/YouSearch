@@ -31,8 +31,8 @@ def main(request):
 
     else:
         # default list of papers
-        rand_inds = np.random.choice(data['no_paper'], size=no_display)
-        titles, authors, abstracts = query(rand_inds)
+        inds = np.random.choice(data['no_paper'], size=no_display)
+        titles, authors, abstracts = query(inds)
 
     user = request.user
     username = user.username
@@ -42,10 +42,37 @@ def main(request):
     # file_list = [f for f in os.listdir(path)]
     search_form = SearchForm()
 
-    list = zip(titles, authors, abstracts)
+    list = zip(titles, authors, abstracts, inds)
 
     return render(request, template_name='dashboard/main.djt', context={'user': user, 'search_form': search_form,
                                                                         'list': list})
+
+@login_required
+def get_similar_papers(request, paper_id, knn=20):
+    """
+
+    :param id:
+    :return:
+    """
+    if data is None:
+        load()
+
+    paper_id = int(paper_id)
+    doc_vector = data['doc_embedding'][paper_id]
+    distance = doc_vector.dot(data['doc_embedding'].T)
+    rank = np.argsort(distance)
+
+    inds = [paper_id]
+    inds.extend(rank[-knn:])
+
+    titles, authors, abstracts = query(inds)
+    user = request.user.username
+    search_form = SearchForm()
+
+    list = zip(titles, authors, abstracts, inds)
+
+    return render(request, template_name='dashboard/main.djt', context={'user': user, 'search_form': search_form,
+                                                                        'list':list})
 
 
 def tokenize(search_string):
@@ -95,7 +122,7 @@ def load():
     """
     global data
     data = dict()
-    with open('nips/w_embs.pkl','rb') as handle:
+    with open('nips/w_embs.pkl', 'rb') as handle:
         data['word_embedding'] = pickle.load(handle)
     data['papers'] = pd.read_csv('nips/papers.csv')
     data['authors'] = pd.read_csv('nips/authors.csv')

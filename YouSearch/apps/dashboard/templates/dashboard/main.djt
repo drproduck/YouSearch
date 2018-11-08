@@ -51,8 +51,26 @@
 {% endblock %}
 
 {% block section3 %}
+
+<style>
+.abstract{
+    background: linear-gradient(#11DD99, #00CC99);
+    box-shadow: 1px 1px 1px #888;
+    border: 1px solid #00CC99;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 5px;
+    min-width: 270px;
+    font-size: 14px;
+    font-family: "Open Sans";
+}
+
+.find-similar-form{
+}
+</style>
     {% for title_author_abstract in list %}
 
+        <div class="abstract">
         <p>
         {{ title_author_abstract.0 }}
         </p>
@@ -62,6 +80,14 @@
         <p>
         {{ title_author_abstract.2 }}
         </p>
+
+        <form class="find-similar-form" action="{% url 'dashboard:get_similar' paper_id=title_author_abstract.3 %}">
+            <input type="submit" value="Find similar papers!">
+        </form>
+{#        <a href="{% url 'dashboard:get_similar' paper_id=title_author_abstract.3 %}">Find similar paper</a>#}
+
+        </div>
+
     {% endfor %}
 {% endblock %}
 
