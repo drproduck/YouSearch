@@ -10,16 +10,59 @@
     <h1>Howdy, {{ user.username }}</h1>
 {% endblock %}
 
+{#{% block section2 %}#}
+{#    {% if user.logfile_set.all %}#}
+{#        <p>Your files are here:</p>#}
+{#        <p><b>Click on the file to view the analytics!</b></p>#}
+{#        {% for log in user.logfile_set.all %}#}
+{#            <p><a href="/analytics/{{ log.log_name }}">{{ log.log_name }}</a></p>#}
+{#        {% endfor %}#}
+{#    {% else %}#}
+{#        <p>You currently have no uploaded files</p>#}
+{#    {% endif %}#}
+{#{% endblock %}#}
+
 {% block section2 %}
-    {% if user.logfile_set.all %}
-        <p>Your files are here:</p>
-        <p><b>Click on the file to view the analytics!</b></p>
-        {% for log in user.logfile_set.all %}
-            <p><a href="/analytics/{{ log.log_name }}">{{ log.log_name }}</a></p>
-        {% endfor %}
-    {% else %}
-        <p>You currently have no uploaded files</p>
-    {% endif %}
+<style>
+
+.search-form{
+    margin:auto;
+    width: 555px;
+    height: 40px;
+}
+.search-bar{
+    padding: 8px;
+    width: 555px;
+    height: 40px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #73AD21;
+    outline: none;
+
+}
+</style>
+<div class="search-form">
+<form action="." method="post">
+    {% csrf_token %}
+    {{ search_form }}
+</form>
+</div>
+{% endblock %}
+
+{% block section3 %}
+    {% for title_author_abstract in list %}
+
+        <p>
+        {{ title_author_abstract.0 }}
+        </p>
+        <p>
+        {{ title_author_abstract.1 }}
+        </p>
+        <p>
+        {{ title_author_abstract.2 }}
+        </p>
+    {% endfor %}
 {% endblock %}
 
 </html>

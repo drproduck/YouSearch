@@ -29,5 +29,10 @@ def MainView(request, log_name):
           response = HttpResponse(fp.read(), content_type='text/csv')
           response['Content-Disposition'] = 'attachment; filename=' + log_name + ".csv"
           return response
-     
+
+
+# from scipy.io import loadmat
+# def MainView(request, log_name):
+#      embs = loadmat('embedding.mat')
+#      embs
 
